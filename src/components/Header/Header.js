@@ -4,7 +4,7 @@ import { useState } from "react";
 import './Header.scss'
 
 export default function Header() {
-    const [selectedPlanet, setSelectedPlanet] = useState(null);
+    const [_selectedPlanet, setSelectedPlanet] = useState(null);
 
     return (
         <header className="header">

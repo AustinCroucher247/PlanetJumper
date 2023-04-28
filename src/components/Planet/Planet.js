@@ -28,6 +28,7 @@ function Planet(props) {
     ]
 
     console.log(planetImageSrcList)
+    // eslint-disable-next-line
     planetImageSrcList.map(planet => {
         if (planet.includes(props.planet)) {
             planetImageSrc = planet;

@@ -31,6 +31,7 @@ function Astronaut(props) {
         return () => {
             window.removeEventListener("keydown", handleKeyPress);
         };
+        // eslint-disable-next-line
     }, [props.planet]);
 
     useEffect(() => {
@@ -38,6 +39,7 @@ function Astronaut(props) {
             // Trigger the jumpAvatar function when the component mounts. Component in this case is landing page
             jumpAvatar();
         }
+        // eslint-disable-next-line
     }, [jumpOnMount]);
 
 

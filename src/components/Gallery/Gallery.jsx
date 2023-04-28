@@ -51,7 +51,7 @@ function Gallery({ planet }) {
                     <img
                         key={index}
                         src={image}
-                        alt="planet picture"
+                        alt="planet"
                         className='gallery__image'
                     />
                 ))}
