@@ -4,7 +4,8 @@ import { useState } from "react";
 import './Header.scss'
 
 export default function Header() {
-    const [_selectedPlanet, setSelectedPlanet] = useState(null);
+    // eslint-disable-next-line
+    const [selectedPlanet, setSelectedPlanet] = useState(null);
 
     return (
         <header className="header">
