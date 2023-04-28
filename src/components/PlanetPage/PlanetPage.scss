@@ -1,0 +1,76 @@
+.planet-page {
+    background-image: url('../../assets/Images/background-stars.jpg');
+    background-size: cover;
+    height: 45rem;
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    &__info {
+        width: 23rem;
+        background-color: rgba($color: #141414, $alpha: 0.5);
+        backdrop-filter: blur(2px);
+        margin-right: 7rem;
+        padding: 1.5rem;
+        border-radius: .5rem;
+    }
+
+    &__title {
+        margin-bottom: 2rem;
+        font-size: 3rem;
+    }
+
+    &__data-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    &__data-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    &__data-heading {
+        font-weight: 600;
+    }
+
+    &__data {}
+
+    &__data-super-script {
+        font-size: 0.75rem;
+    }
+
+    &__planet-container {}
+
+    &__astronaut-container {
+        object-position: center;
+        margin-top: 10rem;
+        margin-left: 4rem;
+        margin-right: 4rem;
+        height: 34rem;
+    }
+}
+
+.data {
+    font-size: .8rem;
+    padding-top: 1rem;
+}
+
+.jump__text {
+    padding-top: 1rem;
+    text-align: center;
+    width: 15rem;
+    font-size: 1.2rem;
+    background-color: white;
+    color: #1b1b1b;
+    border-radius: 10px;
+    padding: 1rem;
+}
