@@ -1,1 +1,2 @@
 /*    /index.html   200
+/api/*  https://api.le-systeme-solaire.net/:splat  200!  Authorization=Bearer 21394e5e-64c2-4dd5-b312-a195cf6f12b6
