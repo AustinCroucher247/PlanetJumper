@@ -9,10 +9,7 @@ import Gallery from '../Gallery/Gallery'
 
 import './PlanetPage.scss'
 
-const API_URL = "https://api.le-systeme-solaire.net/rest.php/bodies";
-
-// put your API key here
-const API_KEY = "21394e5e-64c2-4dd5-b312-a195cf6f12b6";
+const API_URL = "/api/rest.php/bodies";
 
 export default function PlanetPage() {
     let { planet } = useParams();
@@ -24,15 +21,14 @@ export default function PlanetPage() {
         axios.get(API_URL, {
             params: {
                 "filter[]": `englishName,eq,${planet}`
-            },
-            headers: {
-                Authorization: `Bearer ${API_KEY}`
             }
         })
         .then((response) => {
-            setCurrentPlanet(response.data.bodies[0]);
+            if (response.data.bodies && response.data.bodies.length > 0) {
+                setCurrentPlanet(response.data.bodies[0]);
+            }
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.error("API error:", error));
     }, [planet]);
 
     if (!currentPlanet) {
@@ -82,7 +78,7 @@ export default function PlanetPage() {
                                 {currentPlanet.gravity} m/s
                                 <sup className="planet-page__data-super-script">2</sup>
                             </p>
-                        </div> 
+                        </div>
                         <div className="planet-page__data-row">
                             <p className="planet-page__data-heading">Escape Velocity:</p>
                             <p className="planet-page__data">
