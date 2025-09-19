@@ -5,34 +5,36 @@ import axios from 'axios'
 import Astronaut from '../Astronaut/Astronaut'
 import Preloader from '../Preloader/Preloader'
 import Planet from '../Planet/Planet'
-
-import './PlanetPage.scss'
 import Gallery from '../Gallery/Gallery'
 
+import './PlanetPage.scss'
 
-const API_URL = "https://api.le-systeme-solaire.net/rest.php/bodies?data=%5C&filter%5B%5D=englishName%2Ceq%2C";
-const API_QUERY_END = "&filter%5B%5D=";
+const API_URL = "https://api.le-systeme-solaire.net/rest.php/bodies";
 
+// put your API key here
+const API_KEY = "21394e5e-64c2-4dd5-b312-a195cf6f12b6";
 
 export default function PlanetPage() {
     let { planet } = useParams();
-
     let [currentPlanet, setCurrentPlanet] = useState(null);
 
-    // Fetch planet details to display
     useEffect(() => {
-        if (!planet) {
-            return;
-        }
-        axios
-            .get(API_URL + planet + API_QUERY_END)
-            .then((response) => {
-                setCurrentPlanet(response.data.bodies[0]);
-            })
-            .catch((error) => console.log(error));
+        if (!planet) return;
+
+        axios.get(API_URL, {
+            params: {
+                "filter[]": `englishName,eq,${planet}`
+            },
+            headers: {
+                Authorization: `Bearer ${API_KEY}`
+            }
+        })
+        .then((response) => {
+            setCurrentPlanet(response.data.bodies[0]);
+        })
+        .catch((error) => console.log(error));
     }, [planet]);
 
-    // Show preloader when no video is downloaded yet
     if (!currentPlanet) {
         return <Preloader />;
     }
@@ -88,7 +90,7 @@ export default function PlanetPage() {
                             </p>
                         </div>
                         <div className='data'>
-                            <p> Data acquired from: <br></br> https://api.le-systeme-solaire.net/</p>
+                            <p> Data acquired from: <br /> https://api.le-systeme-solaire.net/</p>
                         </div>
                     </div>
                 </div>
@@ -101,7 +103,6 @@ export default function PlanetPage() {
                 </div>
             </div>
             <Gallery planet={planet} />
-
         </div>
     );
 }
