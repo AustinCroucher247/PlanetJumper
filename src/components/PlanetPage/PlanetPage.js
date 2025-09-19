@@ -82,7 +82,7 @@ export default function PlanetPage() {
                                 {currentPlanet.gravity} m/s
                                 <sup className="planet-page__data-super-script">2</sup>
                             </p>
-                        </div>
+                        </div> 
                         <div className="planet-page__data-row">
                             <p className="planet-page__data-heading">Escape Velocity:</p>
                             <p className="planet-page__data">
