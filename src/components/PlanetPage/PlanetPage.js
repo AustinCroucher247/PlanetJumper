@@ -9,7 +9,7 @@ import Gallery from '../Gallery/Gallery'
 
 import './PlanetPage.scss'
 
-const API_URL = "/api/rest.php/bodies";
+const API_URL = "/.netlify/functions/proxy/rest.php/bodies";
 
 export default function PlanetPage() {
     let { planet } = useParams();
@@ -18,11 +18,10 @@ export default function PlanetPage() {
     useEffect(() => {
         if (!planet) return;
 
-        axios.get(API_URL, {
-            params: {
-                "filter[]": `englishName,eq,${planet}`
-            }
-        })
+            axios.get(API_URL, {
+            params: { "filter[]": `englishName,eq,${planet}` }
+            })
+
         .then((response) => {
             if (response.data.bodies && response.data.bodies.length > 0) {
                 setCurrentPlanet(response.data.bodies[0]);

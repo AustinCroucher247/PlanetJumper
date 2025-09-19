@@ -4,4 +4,5 @@
   status = 200
   force = true
   headers = { Authorization = "Bearer 21394e5e-64c2-4dd5-b312-a195cf6f12b6" }
-    
+    [functions]
+  directory = "netlify/functions"
